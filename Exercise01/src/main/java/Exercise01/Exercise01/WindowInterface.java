@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -56,9 +57,20 @@ public class WindowInterface extends JFrame implements ActionListener{
 		btn_3.addActionListener(this);
 		btn_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			if (e.getActionCommand() == "customize")
-				setSize(Integer.parseInt(x.getText()), Integer.parseInt(y.getText()));
-			}
+				if (e.getActionCommand() == "customize")
+					if ((x.getText().isEmpty()) || (x.getText().isEmpty()))
+					{
+					     JOptionPane.showMessageDialog(null, "PLEASE DO NOT LEAVE ANY FIELD BLANK!");
+					}
+					else
+					{
+						setSize(Integer.parseInt(x.getText()), Integer.parseInt(y.getText()));
+					}
+					
+				}
+			
+
+
 		});
 		
 		y = new JTextField();
